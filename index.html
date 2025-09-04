@@ -550,11 +550,29 @@
             box-shadow: var(--shadow);
         }
 
+        .honor-details {
+            /* No styles needed by default, it's just for grouping */
+        }
+
+        /* Makes the award name a block element so the issuer appears on the next line.
+        */
         .honor-name {
             color: var(--text-primary);
             font-weight: 500;
+            display: block; /* Add this line */
         }
 
+        /* New style for the awarding institution.
+        */
+        .honor-issuer {
+            display: block; /* Ensures it's on its own line */
+            color: var(--text-secondary); /* Uses the same color as the date for consistency */
+            font-size: 0.9rem; /* Makes it slightly smaller than the award name */
+            margin-top: 0.25rem; /* Adds a little space below the award name */
+        }
+
+        /* No changes are needed for .honor-date, it will stay on the right.
+        */
         .honor-date {
             color: var(--text-secondary);
         }
@@ -666,17 +684,17 @@
                 <p class="title">Shanghai Jiao Tong University</p>
                 
                 <p class="bio">
-                    I'm a first year master student from <a href="https://en.senergy.sjtu.edu.cn/" target="_blank" rel="noopener noreferrer">College of Smart Energy</a>, <a href="https://en.sjtu.edu.cn/" target="_blank" rel="noopener noreferrer">Shanghai Jiao Tong University</a>.
+                    I'm a first year master student from <a href="https://en.senergy.sjtu.edu.cn/" target="_blank" rel="noopener noreferrer">College of Smart Energy</a>, <a href="https://en.sjtu.edu.cn/" target="_blank" rel="noopener noreferrer">Shanghai Jiao Tong University</a>.<br>
 
-                    My research interest includes power system, machine learning, data synthesis and LLM applications.
+                    My research interest includes power system, machine learning, data synthesis and LLM applications.<br>
                     
-                    I am very fortunate to be advised by <a href="https://www.senergy.sjtu.edu.cn/index/ziyoushizi/52.html" target="_blank" rel="noopener noreferrer">Prof. Yiyan Li</a> from <a href="https://en.senergy.sjtu.edu.cn/" target="_blank" rel="noopener noreferrer">College of Smart Energy</a>, Shanghai Jiao Tong University. 
+                    I am very fortunate to be advised by <a href="https://www.senergy.sjtu.edu.cn/index/ziyoushizi/52.html" target="_blank" rel="noopener noreferrer">Prof. Yiyan Li</a> from <a href="https://en.senergy.sjtu.edu.cn/" target="_blank" rel="noopener noreferrer">College of Smart Energy</a>, Shanghai Jiao Tong University. <br>
                     
-                    I was advised by <a href="https://eeit.hnu.edu.cn/info/1568/8182.htm" target="_blank" rel="noopener noreferrer">Prof. Zhixing He</a> from <a href="https://eeit.hnu.edu.cn/" target="_blank" rel="noopener noreferrer">College of Electrical and Information Engineering</a>, Hunan University.
+                    I was advised by <a href="https://eeit.hnu.edu.cn/info/1568/8182.htm" target="_blank" rel="noopener noreferrer">Prof. Zhixing He</a> from <a href="https://eeit.hnu.edu.cn/" target="_blank" rel="noopener noreferrer">College of Electrical and Information Engineering</a>, Hunan University.<br>
                     
-                    You can find my CV here: <a href="CV-zzh-250721.pdf" target="_blank">Zhenghao Zhou's Curriculum Vitae</a>.
+                    You can find my CV here: <a href="CV-zzh-250904.pdf" target="_blank">Zhenghao Zhou's Curriculum Vitae</a>.<br>
 
-                    You can also find my articles on <a href="https://scholar.google.com/citations?user=dATRyDYAAAAJ&hl=zh-CN" target="_blank" >my Google Scholar profile</a>.
+                    You can also find my articles on <a href="https://scholar.google.com/citations?user=dATRyDYAAAAJ&hl=zh-CN" target="_blank" >my Google Scholar profile</a>.<br>
                 </p>
                 </p>
                 <div class="contact-info">
@@ -739,7 +757,7 @@
                 </div>
                 <div class="card research-card">
                     <h3>Physics-Informed Modeling</h3>
-                    <p>Using machine-learning based methods to model power systems with interpretability. For example, using Kolmogorov-Arnold Network to implement white-box modeling of electrical energy systems</p>
+                    <p>Using machine-learning based methods to model power systems with interpretability, such as Kolmogorov-Arnold Network.</p>
                 </div>
             </div>
         </section>
@@ -764,9 +782,9 @@
                         <!-- <a href="10.1109/TITS.2025.3564389">DOI</a> -->
                     </div>
                 </div>
-                <!-- <div class="publication-image"> -->
-                    <!-- <img src="pub_images/ev_charging_system.png" alt="EV Charging System Architecture" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none';"> -->
-                <!-- </div> -->
+                <div class="publication-image">
+                    <img src="Fig/KAN.png" alt="Training process of KAN for symbolic regression" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none';">
+                </div>
             </div>
 
 
@@ -786,9 +804,9 @@
                         <!-- <a href="10.1109/TSG.2025.3578842">DOI</a> -->
                     </div>
                 </div>
-                <!-- <div class="publication-image"> -->
-                    <!-- <img src="pub_images/roadpowerfm.png" alt="RoadPowerFM Model Architecture" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none';"> -->
-                <!-- </div> -->
+                <div class="publication-image">
+                    <img src="Fig/AC-InfoGAN.png" alt="AC-InfoGAN Model Architecture" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none';">
+                </div>
             </div>
 
             <div class="publication">
@@ -807,9 +825,9 @@
                         <!-- <a href="#">Presentation</a> -->
                     </div>
                 </div>
-                <!-- <div class="publication-image">
-                    <img src="pub_images/tgcn_prediction.png" alt="T-GCN Load Prediction Results" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none';">
-                </div> -->
+                <div class="publication-image">
+                    <img src="Fig/PowerDataWatermark_C.png" alt="Watermarking Model Framework" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none';">
+                </div>
             </div>
 
             <div class="publication">
@@ -828,9 +846,9 @@
                         <!-- <a href="#">DOI</a> -->
                     </div>
                 </div>
-                <!-- <div class="publication-image">
-                    <img src="pub_images/llm_power_system.jpg" alt="LLM in Power Systems Framework" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none';">
-                </div> -->
+                <div class="publication-image"> 
+                    <img src="Fig/LLM_imputation_C.png" alt="LLM-based imputation framework" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none';">
+                </div> 
             </div>
 
 
@@ -848,14 +866,14 @@
                     </div>
                     <div class="publication-links">
                         <a href="Paper/Battery.pdf">PDF</a>
-                        <a href="#">Conference</a>
+                        <!-- <a href="#">Conference</a> -->
                     </div>
                 </div>
                 <!-- <div class="publication-image">
                     <img src="pub_images/vpp_tgcn_mpc.png" alt="VPP Operation Mode with TGCN-MPC" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none';">
                 </div> -->
             </div>
-
+ 
             <div class="publication">
                 <div class="publication-content">
                     <div class="publication-title">
@@ -1024,16 +1042,54 @@
             <div class="card">
                 <ul class="honor-list">
                     <li>
-                        <span class="honor-name">Excellent Undergraduate Student Award</span>
-                        <span class="honor-date">2024.12</span>
+                        <div class="honor-details"> <span class="honor-name">Excellent Undergraduate Student Award</span>
+                            <span class="honor-issuer">Hunan Provincial Department of Education</span>
+                        </div>
+                        <span class="honor-date">2024</span>
+                    </li>
+
+                    <li>
+                        <div class="honor-details"> <span class="honor-name">Excellent Undergraduate Student Award</span>
+                            <span class="honor-issuer">Hunan University</span>
+                        </div>
+                        <span class="honor-date">2024</span>
+                    </li>
+
+                    <li>
+                        <div class="honor-details"> <span class="honor-name">Hugo Shong Scholarship </span>
+                            <span class="honor-issuer">Hunan University</span>
+                        </div>
+                        <span class="honor-date">2024</span>
                     </li>
                     <li>
-                        <span class="honor-name">China National Scholarship</span>
-                        <span class="honor-date">2024.12 & 2023.12</span>
+                        <div class="honor-details"> <span class="honor-name">China National Scholarship</span>
+                            <span class="honor-issuer">HMinistry of Education of China</span>
+                        </div>
+                        <span class="honor-date">2023</span>
                     </li>
                     <li>
-                        <span class="honor-name">Excellent Undergraduate Student Award</span>
-                        <span class="honor-date">2021.12 & 2020.12</span>
+                        <div class="honor-details"> <span class="honor-name">National Second prize of China University Intelligent Robot Creativity Competition</span>
+                            <span class="honor-issuer">Chinese Association for Artificial Intelligence</span>
+                        </div>
+                        <span class="honor-date">2023</span>
+                    </li>
+                    <li>
+                        <div class="honor-details"> <span class="honor-name">National First prize of China Robotics and Artificial Intelligence Competition</span>
+                            <span class="honor-issuer">Chinese Association for Artificial Intelligence</span>
+                        </div>
+                        <span class="honor-date">2023</span>
+                    </li>
+                    <li>
+                        <div class="honor-details"> <span class="honor-name">National First prize of China Robot Competition</span>
+                            <span class="honor-issuer">Chinese Association for Automation</span>
+                        </div>
+                        <span class="honor-date">2022</span>
+                    </li>
+                    <li>
+                        <div class="honor-details"> <span class="honor-name">TBEA Scholarship </span>
+                            <span class="honor-issuer">Hunan University</span>
+                        </div>
+                        <span class="honor-date">2022</span>
                     </li>
                 </ul>
             </div>
