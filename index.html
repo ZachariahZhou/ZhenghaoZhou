@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeyuan Niu - Academic Homepage</title>
+    <!-- LikeBtn.com integration for global like counter -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #3b82f6;
+            --accent-color: #60a5fa;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --bg-card: rgba(255, 255, 255, 0.8);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --heart-color: #ef4444;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow-lg);
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Profile Section with Like Feature */
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Like Button Container */
+        .like-container {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* LikeBtn Custom Styles */
+        .likebtn-wrapper {
+            margin: 0 !important;
+        }
+
+        /* Override LikeBtn default styles to match our design */
+        .likebtn-wrapper .lb-like {
+            background: var(--bg-card) !important;
+            border: 2px solid #e5e7eb !important;
+            border-radius: 50px !important;
+            padding: 0.75rem 1.5rem !important;
+            transition: all 0.3s ease !important;
+            box-shadow: var(--shadow) !important;
+        }
+
+        .likebtn-wrapper .lb-like:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: var(--shadow-lg) !important;
+            border-color: var(--heart-color) !important;
+        }
+
+        .likebtn-wrapper .lb-like.lb-voted {
+            background: rgba(239, 68, 68, 0.1) !important;
+            border-color: var(--heart-color) !important;
+        }
+
+        .likebtn-wrapper .lb-like .lb-icon {
+            color: var(--text-secondary) !important;
+        }
+
+        .likebtn-wrapper .lb-like.lb-voted .lb-icon {
+            color: var(--heart-color) !important;
+        }
+
+        .likebtn-wrapper .lb-count {
+            color: var(--text-primary) !important;
+            font-weight: 600 !important;
+        }
+
+        .likebtn-wrapper .lb-like.lb-voted .lb-count {
+            color: var(--heart-color) !important;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content .title {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .hero-content .bio {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: var(--primary-color);
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 4rem;
+            opacity: 0;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.4s; }
+        .section:nth-child(4) { animation-delay: 0.6s; }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 80%;
+            background: linear-gradient(180deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Education */
+        .education-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .education-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .education-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .education-date {
+            color: var(--text-secondary);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        /* Research Interests */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .research-card {
+            background: linear-gradient(135deg, var(--bg-card), rgba(59, 130, 246, 0.05));
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .research-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .research-card h3::before {
+            content: '▸';
+            font-size: 1.25rem;
+        }
+
+        /* Publications - Updated Styles */
+        .publication {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            background: var(--bg-card);
+            border-radius: 15px;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+            align-items: center;
+        }
+
+        .publication:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .publication-content {
+            flex: 1;
+        }
+
+        .publication-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .publication-authors {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-authors strong {
+            color: var(--primary-color);
+        }
+
+        .publication-venue {
+            color: var(--primary-color);
+            font-style: italic;
+        }
+
+        .publication-links {
+            margin-top: 0.75rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .publication-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.875rem;
+            padding: 0.25rem 0.75rem;
+            border: 1px solid var(--primary-color);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .publication-links a:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Publication Image */
+        .publication-image {
+            width: 100%;
+            height: 200px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .publication-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .publication-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Placeholder for missing images */
+        .publication-image.placeholder {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(96, 165, 250, 0.1));
+            position: relative;
+        }
+
+        .publication-image.placeholder::before {
+            content: '📊';
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+
+        .publication-image.placeholder::after {
+            content: 'Figure';
+            position: absolute;
+            bottom: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Research Experience */
+        .experience-item {
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-card);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            border-top: 3px solid var(--primary-color);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience-title {
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-date {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .experience-list {
+            list-style: none;
+            padding-left: 1rem;
+        }
+
+        .experience-list li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .experience-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Honors */
+        .honor-list {
+            list-style: none;
+        }
+
+        .honor-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            background: var(--bg-card);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .honor-list li:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow);
+        }
+
+        .honor-name {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .honor-date {
+            color: var(--text-secondary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .publication {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .publication-image {
+                height: 250px;
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-section {
+                margin: 0 auto;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .education-item {
+                flex-direction: column;
+            }
+
+            .education-date {
+                margin-top: 0.5rem;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: start;
+            }
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            background: var(--secondary-color);
+        }
+
+        .text-secondary {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">Zhenghao Zhou's Academic Homepage</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section id="about" class="hero">
+            <div class="profile-section">
+                <img src="profile.jpg" alt="Personal Photo" class="profile-img">
+                <div class="like-container">
+                    <!-- LikeBtn.com BEGIN -->
+                    <span class="likebtn-wrapper" data-theme="custom" data-icon_l="hrt1" data-icon_size="24" data-icon_l_c="#6b7280" data-icon_l_c_v="#ef4444" data-counter_type="single_number" data-counter_clickable="true" data-popup_position="top" data-popup_style="dark" data-share_enabled="false" data-tooltip_enabled="false" data-i18n_after_like="Thank you!" data-i18n_popup_text="Press the heart if you like Zeyuan's research!" data-identifier="zeyuan-niu-profile" data-dislike_enabled="false" data-counter_zero_show="true" data-counter_count="1"></span>
+                    <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
+                    <!-- LikeBtn.com END -->
+                </div>
+            </div>
+            <div class="hero-content">
+                <h1>Zhenghao Zhou</h1>
+                <p class="title">Master Student in Electrical Engineering</p>
+                <p class="title">Shanghai Jiao Tong University</p>
+                <p class="bio">
+                    I'm a first year master student from [College of Smart Energy](https://en.senergy.sjtu.edu.cn/), [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/).
+
+                    My research interest includes power system, machine learning, data synthesis and LLM applications.
+                    
+                    I am very fortunate to be advised by [Prof. Yiyan Li](https://www.senergy.sjtu.edu.cn/index/ziyoushizi/52.html) from [College of Smart Energy](https://en.senergy.sjtu.edu.cn/), Shanghai Jiao Tong University. 
+                    
+                    I was advised by [Prof. Zhixing He](https://eeit.hnu.edu.cn/info/1568/8182.htm) from [College of Electrical and Information Engineering](https://eeit.hnu.edu.cn/), Hunan University.
+                    
+                    You can find my CV here: [Zhenghao Zhou's Curriculum Vitae](../assets/CV-zzh-250721.pdf).
+
+                    You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile.
+                    
+                </p>
+                <div class="contact-info">
+                    <a href="mailto:nzy0720@sjtu.edu.cn" class="contact-item">
+                        <span>📧</span> zhenghao.zhou@sjtu.edu.cn
+                    </a>
+                    <a href="tel:+8613319203489" class="contact-item">
+                        <span>📱</span> +86 15200897908
+                    </a>
+                    <a href="#" class="contact-item">
+                        <span>🏫</span> SJTU, Shanghai, China
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section id="education" class="section">
+            <h2 class="section-title">Educational Background</h2>
+            <div class="card">
+                <div class="education-item">
+                    <div class="education-content">
+                        <h3>M.S. in Electrical Engineering </h3>
+                        <p>Shanghai Jiao Tong University, College of Smart Energy</p>
+                        <p class="text-secondary">GPA: 3.89/4.00</p>
+                        <p class="text-secondary">Advisor: Yiyan Li, Associate Professor</p>
+                    </div>
+                    <span class="education-date">2024.09 - 2027.03 (Expected)</span>
+                </div>
+                <div class="education-item">
+                    <div class="education-content">
+                        <h3>B.S. in Electrical Engineering</h3>
+                        <p>Hunan University, School of Electronic Information and Electrical Engineering</p>
+                        <p class="text-secondary">GPA: 3.83/4.00 (Ranking: 3/289)</p>
+                    </div>
+                    <span class="education-date">2020.09 - 2024.06</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Interests -->
+        <section id="research" class="section">
+            <h2 class="section-title">Research Interests</h2>
+            <div class="research-grid">
+                <div class="card research-card">
+                    <h3>Power Systems & Smart Grids</h3>
+                    <p>Developing intelligent solutions for modern power systems, including load forecasting, battery state estimation and watermarking technology.</p>
+                </div>
+                <div class="card research-card">
+                    <h3>Large Language Models</h3>
+                    <p>Exploring applications of LLMs in power systems, including time series analysis, multivariable causal discovery and feeder systhesis.</p>
+                </div>
+                <div class="card research-card">
+                    <h3>Data Synthesis</h3>
+                    <p>Using deep-learning based methods to synthesize useful data for power system analysis.</p>
+                </div>
+                <div class="card research-card">
+                    <h3>Asset Verification</h3>
+                    <p>Researching watermark technology to verify the ownership for dataset or neural network</p>
+                </div>
+                <div class="card research-card">
+                    <h3>Physics-Informed Modeling</h3>
+                    <p>Using machine-learning based methods to model power systems with interpretability. For example, using Kolmogorov-Arnold Network to implement white-box modeling of electrical energy systems</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications -->
+        <section id="publications" class="section">
+            <h2 class="section-title">Publications</h2>
+            
+            <div class="publication">
+                <div class="publication-content">
+                    <div class="publication-title">
+                        A White-Box Deep-Learning Method for Electrical Energy System Modeling Based on Kolmogorov-Arnold Network
+                    </div>
+                    <div class="publication-authors">
+                        <strong>Zhenghao Zhou</strong>, Yiyan Li*, Zelin Guo, Zheng Yan, Mo-Yuen Chow
+                    </div>
+                    <div class="publication-venue">
+                        IEEE Transactions on Industrial Informatics (Accepted)
+                    </div>
+                    <div class="publication-links">
+                        <a href="KAN.pdf">PDF</a>
+                        <!-- <a href="10.1109/TITS.2025.3564389">DOI</a> -->
+                    </div>
+                </div>
+                <div class="publication-image">
+                    <img src="pub_images/ev_charging_system.png" alt="EV Charging System Architecture" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none';">
+                </div>
+            </div>
+
+
+            <div class="publication">
+                <div class="publication-content">
+                    <div class="publication-title">
+                        Unsupervised and controllable synthesizing for imbalanced energy dataset based on AC-InfoGAN
+                    </div>
+                    <div class="publication-authors">
+                        <strong>Zhenghao Zhou</strong>, Yiyan Li*, Runlong Liu, Zheng Yan, Mo-Yuen Chow
+                    </div>
+                    <div class="publication-venue">
+                        Applied Energy (2025)
+                    </div>
+                    <div class="publication-links">
+                        <a href="Paper/AC-InfoGAN.pdf">PDF</a>
+                        <!-- <a href="10.1109/TSG.2025.3578842">DOI</a> -->
+                    </div>
+                </div>
+                <div class="publication-image">
+                    <img src="pub_images/roadpowerfm.png" alt="RoadPowerFM Model Architecture" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none';">
+                </div>
+            </div>
+
+            <div class="publication">
+                <div class="publication-content">
+                    <div class="publication-title">
+                        LLM-based Multivariable Missing Data Restoration for Photovoltaic-Storage Integrated Systems
+                    </div>
+                    <div class="publication-authors">
+                        <strong>Zhenghao Zhou</strong>, Yiyan Li*, Zelin Guo, Runlong Liu, Zheng Yan, Mo-Yuen Chow
+                    </div>
+                    <div class="publication-venue">
+                        PES International Meeting 2025 (Accepted)
+                    </div>
+                    <div class="publication-links">
+                        <a href="Paper/LLM_imputation_C.pdf">PDF</a>
+                        <!-- <a href="#">Presentation</a> -->
+                    </div>
+                </div>
+                <div class="publication-image">
+                    <img src="pub_images/tgcn_prediction.png" alt="T-GCN Load Prediction Results" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none';">
+                </div>
+            </div>
+
+            <div class="publication">
+                <div class="publication-content">
+                    <div class="publication-title">
+                        Power Data Watermarking: A New Methodology to Protect Power System Data Assets
+                    </div>
+                    <div class="publication-authors">
+                        <strong>Zhenghao Zhou</strong>, Yiyan Li*, Runlong Liu, Zheng Yan, Mo-Yuen Chow
+                    </div>
+                    <div class="publication-venue">
+                    PES General Meeting 2025 (Accepted)
+                    </div>
+                    <div class="publication-links">
+                        <a href="Paper/PowerDataWatermark_C.pdf">PDF</a>
+                        <!-- <a href="#">DOI</a> -->
+                    </div>
+                </div>
+                <div class="publication-image">
+                    <img src="pub_images/llm_power_system.jpg" alt="LLM in Power Systems Framework" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none';">
+                </div>
+            </div>
+
+
+
+            <div class="publication">
+                <div class="publication-content">
+                    <div class="publication-title">
+                        A Virtual-component-embedded Equivalent Circuit Model for Lithium-ion Battery State Estimation
+                    </div>
+                    <div class="publication-authors">
+                        Zelin Guo, Yiyan Li, <strong>Zhenghao Zhou</strong>, Chen Zhang, Zheng Yan, Mo-Yuen Chow
+                    </div>
+                    <div class="publication-venue">
+                        International Journal of Electrical Power & Energy Systems
+                    </div>
+                    <div class="publication-links">
+                        <a href="Paper/Battery.pdf">PDF</a>
+                        <a href="#">Conference</a>
+                    </div>
+                </div>
+                <div class="publication-image">
+                    <img src="pub_images/vpp_tgcn_mpc.png" alt="VPP Operation Mode with TGCN-MPC" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none';">
+                </div>
+            </div>
+
+            <div class="publication">
+                <div class="publication-content">
+                    <div class="publication-title">
+                        Abnormal Load Variation Forecasting in Urban Cities Based on Sample Augmentation and TimesNet.
+                    </div>
+                    <div class="publication-authors">
+                        Yiyan Li, Zizhuo Gao, <strong>Zhenghao Zhou</strong>, Yu Zhang, Zelin Guo, Zheng Yan
+                    </div>
+                    <div class="publication-venue">
+                        Smart Cities
+                    </div>
+                    <div class="publication-links">
+                        <a href="Paper/Abnormal_Load.pdf">PDF</a>
+                        <!-- <a href="#">Conference</a> -->
+                    </div>
+                </div>
+                <div class="publication-image">
+                    <img src="pub_images/vpp_tgcn_mpc.png" alt="VPP Operation Mode with TGCN-MPC" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none';">
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Research Experience -->
+        <section id="experience" class="section">
+            <h2 class="section-title">Research Experience</h2>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Graphormer-JEPA based Foundation Model for Road-Power Coupling Network</h3>
+                        <p class="text-secondary">IEEE Transactions on Smart Grid</p>
+                    </div>
+                    <span class="experience-date">2024.05 - 2025.05</span>
+                </div>
+                <ul class="experience-list">
+                    <li>Developed a Road Power Foundation Model (RPFM) integrating Graphormer and JEPA to combine long-range graph attention with self-supervised embedding prediction</li>
+                    <li>Engineered a self-adaptive pretraining strategy using the Louvain algorithm with community-aware positional encoding, achieving a zero-shot F1 score of 0.7938 on EVCS location planning</li>
+                    <li>Implemented LoRA-based fine-tuning delivering average improvements of 11.40%, 3.36%, and 8.52% across multiple downstream tasks</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">EV Charging System with Multi-Agent LLMs and CGAN</h3>
+                        <p class="text-secondary">IEEE Transactions on Intelligent Transportation Systems</p>
+                    </div>
+                    <span class="experience-date">2024.01 - 2024.11</span>
+                </div>
+                <ul class="experience-list">
+                    <li>Architected a Multi-Agent-LLM framework integrating User Agents, EVCS Agents, and a Negotiation Platform for dynamic optimization</li>
+                    <li>Designed a hybrid LLM-CGAN model to generate diverse user behavior and pricing data for fine-tuning</li>
+                    <li>Established an intelligent negotiation platform outperforming standard optimization models by 3.96% in overall system effectiveness</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Load Prediction of Multiple EV Charging Stations by T-GCN</h3>
+                        <p class="text-secondary">IEEE ISGT-Asia 2024</p>
+                    </div>
+                    <span class="experience-date">2023.10 - 2024.06</span>
+                </div>
+                <ul class="experience-list">
+                    <li>Integrated graph convolution and GRU networks to capture spatial-temporal correlations, achieving 91.30% accuracy on 72-hour load forecasting</li>
+                    <li>Conducted grey correlation analysis to construct adjacency matrices representing spatial relationships between charging stations</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Project Experience
+        <section id="projects" class="section">
+            <h2 class="section-title">Project Experience</h2>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Research on Key Technology of Mass Flexible Resource Scheduling in Virtual Power Plant</h3>
+                        <p class="text-secondary">State Grid Corporation of China (SGCC), Chongqing</p>
+                    </div>
+                    <span class="experience-date">2023.01 - 2024.12</span>
+                </div>
+                <ul class="experience-list">
+                    <li>Researched feasible region identification technology for time-varying scheduling of flexible resources in VPPs</li>
+                    <li>Proposed AST-GCN (Attribute-Augmented Spatiotemporal Graph Convolutional Network) method achieving 95.53% accuracy</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Research on Active Consumption and Cooperative Control of Distributed Resources</h3>
+                        <p class="text-secondary">SGCC, Shanghai</p>
+                    </div>
+                    <span class="experience-date">2023.09 - 2024.12</span>
+                </div>
+                <ul class="experience-list">
+                    <li>Researched online aggregation of virtual power plant diversified distributed resources</li>
+                    <li>Constructed a unified state model for efficient information interaction and flexible energy coordination</li>
+                    <li>Published research findings in conference proceedings</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Research on Energy Storage Planning from Source-Grid-Load-Carbon Perspective</h3>
+                        <p class="text-secondary">SGCC, Guangdong</p>
+                    </div>
+                    <span class="experience-date">2023.12 - 2025.11</span>
+                </div>
+                <ul class="experience-list">
+                    <li>Researching planning layout and benefit evaluation of source-side energy storage</li>
+                    <li>Proposed optimized joint configuration strategy achieving 9% reduction in total operation and investment cost</li>
+                </ul>
+            </div>
+        </section> -->
+
+        <!-- Skills -->
+        <section id="skills" class="section">
+            <h2 class="section-title">Professional Skills</h2>
+            <div class="skills-grid">
+                <div class="card">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">MATLAB</span>
+                        <span class="skill-tag">C</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Machine Learning Frameworks</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Altium Designer</span>
+                        <span class="skill-tag">SolidWorks</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">LlamaFactory</span>
+                        <span class="skill-tag">Keil</span>
+                        <span class="skill-tag">Dify</span>
+
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">English (IELTS: 6.5)</span>
+                        <span class="skill-tag">Chinese (Native)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Honors & Awards -->
+        <section id="honors" class="section">
+            <h2 class="section-title">Honors & Awards</h2>
+            <div class="card">
+                <ul class="honor-list">
+                    <li>
+                        <span class="honor-name">Excellent Undergraduate Student Award</span>
+                        <span class="honor-date">2024.12</span>
+                    </li>
+                    <li>
+                        <span class="honor-name">China National Scholarship</span>
+                        <span class="honor-date">2024.12 & 2023.12</span>
+                    </li>
+                    <li>
+                        <span class="honor-name">Excellent Undergraduate Student Award</span>
+                        <span class="honor-date">2021.12 & 2020.12</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Other Information
+        <section id="other" class="section">
+            <h2 class="section-title">Other Information</h2>
+            <div class="card">
+                <p><strong>Working Topic:</strong> A Generalizable Physics-Informed and Graph-Based Method for Topology Identification in Unobservable Distribution Networks (@MIT-UF-NEU 2025 Summer Research Camp)</p>
+                <p style="margin-top: 1rem;"><strong>Student Service:</strong></p>
+                <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                    <li>Assistant to the Career Services Office, School of Electronic Information and Electrical Engineering</li>
+                    <li>Library Information Officer, Shanghai Jiao Tong University</li>
+                    <li>Team Leader of School's Football Team (2022)</li>
+                </ul>
+            </div>
+        </section> -->
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">↑</div>
+
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Back to top button
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Back to top
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.animationPlayState = 'paused';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
