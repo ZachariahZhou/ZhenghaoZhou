@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zhenghao Zhou - Academic Homepage</title>
-    <!-- LikeBtn.com integration for global like counter -->
     <style>
         * {
             margin: 0;
@@ -120,7 +119,7 @@
             }
         }
 
-        /* Profile Section with Like Feature */
+        /* Profile Section */
         .profile-section {
             display: flex;
             flex-direction: column;
@@ -138,58 +137,6 @@
 
         .profile-img:hover {
             transform: scale(1.05);
-        }
-
-        /* Like Button Container */
-        .like-container {
-            margin-top: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        /* LikeBtn Custom Styles */
-        .likebtn-wrapper {
-            margin: 0 !important;
-        }
-
-        /* Override LikeBtn default styles to match our design */
-        .likebtn-wrapper .lb-like {
-            background: var(--bg-card) !important;
-            border: 2px solid #e5e7eb !important;
-            border-radius: 50px !important;
-            padding: 0.75rem 1.5rem !important;
-            transition: all 0.3s ease !important;
-            box-shadow: var(--shadow) !important;
-        }
-
-        .likebtn-wrapper .lb-like:hover {
-            transform: translateY(-2px) !important;
-            box-shadow: var(--shadow-lg) !important;
-            border-color: var(--heart-color) !important;
-        }
-
-        .likebtn-wrapper .lb-like.lb-voted {
-            background: rgba(239, 68, 68, 0.1) !important;
-            border-color: var(--heart-color) !important;
-        }
-
-        .likebtn-wrapper .lb-like .lb-icon {
-            color: var(--text-secondary) !important;
-        }
-
-        .likebtn-wrapper .lb-like.lb-voted .lb-icon {
-            color: var(--heart-color) !important;
-        }
-
-        .likebtn-wrapper .lb-count {
-            color: var(--text-primary) !important;
-            font-weight: 600 !important;
-        }
-
-        .likebtn-wrapper .lb-like.lb-voted .lb-count {
-            color: var(--heart-color) !important;
         }
 
         .hero-content h1 {
@@ -654,7 +601,6 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
             <div class="logo">Zhenghao Zhou's Academic Homepage</div>
@@ -669,15 +615,10 @@
         </div>
     </nav>
 
-    <!-- Main Container -->
     <div class="container">
         <section id="about" class="hero">
             <div class="profile-section">
                 <img src="Fig/profile.jpg" alt="Personal Photo" class="profile-img">
-                <div class="like-container">
-                    <span class="likebtn-wrapper" data-theme="custom" data-icon_l="hrt1" data-icon_size="24" data-icon_l_c="#6b7280" data-icon_l_c_v="#ef4444" data-counter_type="single_number" data-counter_clickable="true" data-popup_position="top" data-popup_style="dark" data-share_enabled="false" data-tooltip_enabled="false" data-i18n_after_like="Thank you!" data-i18n_popup_text="Press the heart if you like Zhenghao's research!" data-identifier="zhenghao-zhou-profile" data-dislike_enabled="false" data-counter_zero_show="true" data-counter_count="1"></span>
-                    <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
-                    </div>
             </div>
             <div class="hero-content">
                 <h1>Zhenghao Zhou</h1>
@@ -712,7 +653,6 @@
             </div>
         </section>
 
-        <!-- Education -->
         <section id="education" class="section">
             <h2 class="section-title">Educational Background</h2>
             <div class="card">
@@ -736,7 +676,6 @@
             </div>
         </section>
 
-        <!-- Research Interests -->
         <section id="research" class="section">
             <h2 class="section-title">Research Interests</h2>
             <div class="research-grid">
@@ -759,7 +698,6 @@
             </div>
         </section>
 
-        <!-- Publications -->
         <section id="publications" class="section">
             <h2 class="section-title">Publications</h2>
             
@@ -776,8 +714,7 @@
                     </div>
                     <div class="publication-links">
                         <a href="Paper/KAN.pdf">PDF</a>
-                        <!-- <a href="10.1109/TITS.2025.3564389">DOI</a> -->
-                    </div>
+                        </div>
                 </div>
                 <div class="publication-image">
                     <img src="Fig/KAN.png" alt="Training process of KAN for symbolic regression" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none';">
@@ -798,8 +735,7 @@
                     </div>
                     <div class="publication-links">
                         <a href="Paper/AC-InfoGAN.pdf">PDF</a>
-                        <!-- <a href="10.1109/TSG.2025.3578842">DOI</a> -->
-                    </div>
+                        </div>
                 </div>
                 <div class="publication-image">
                     <img src="Fig/AC-InfoGAN.png" alt="AC-InfoGAN Model Architecture" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none';">
@@ -819,8 +755,7 @@
                     </div>
                     <div class="publication-links">
                         <a href="Paper/LLM_imputation_C.pdf">PDF</a>
-                        <!-- <a href="#">Presentation</a> -->
-                    </div>
+                        </div>
                 </div>
                 <div class="publication-image">
                     <img src="Fig/LLM_imputation_C.png" alt="LLM-based imputation framework" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none';">
@@ -840,8 +775,7 @@
                     </div>
                     <div class="publication-links">
                         <a href="Paper/PowerDataWatermark_C.pdf">PDF</a>
-                        <!-- <a href="#">DOI</a> -->
-                    </div>
+                        </div>
                 </div>
                 <div class="publication-image"> 
                     <img src="Fig/PowerDataWatermark_C.png" alt="Watermarking Model Framework" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none';">
@@ -863,13 +797,9 @@
                     </div>
                     <div class="publication-links">
                         <a href="Paper/Battery.pdf">PDF</a>
-                        <!-- <a href="#">Conference</a> -->
-                    </div>
+                        </div>
                 </div>
-                <!-- <div class="publication-image">
-                    <img src="pub_images/vpp_tgcn_mpc.png" alt="VPP Operation Mode with TGCN-MPC" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none';">
-                </div> -->
-            </div>
+                </div>
  
             <div class="publication">
                 <div class="publication-content">
@@ -884,114 +814,12 @@
                     </div>
                     <div class="publication-links">
                         <a href="Paper/Abnormal_Load.pdf">PDF</a>
-                        <!-- <a href="#">Conference</a> -->
-                    </div>
+                        </div>
                 </div>
-                <!-- <div class="publication-image">
-                    <img src="pub_images/vpp_tgcn_mpc.png" alt="VPP Operation Mode with TGCN-MPC" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none';">
-                </div> -->
-            </div>
+                </div>
 
         </section>
 
-        <!-- Research Experience
-        <section id="experience" class="section">
-            <h2 class="section-title">Research Experience</h2>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <h3 class="experience-title">Graphormer-JEPA based Foundation Model for Road-Power Coupling Network</h3>
-                        <p class="text-secondary">IEEE Transactions on Smart Grid</p>
-                    </div>
-                    <span class="experience-date">2024.05 - 2025.05</span>
-                </div>
-                <ul class="experience-list">
-                    <li>Developed a Road Power Foundation Model (RPFM) integrating Graphormer and JEPA to combine long-range graph attention with self-supervised embedding prediction</li>
-                    <li>Engineered a self-adaptive pretraining strategy using the Louvain algorithm with community-aware positional encoding, achieving a zero-shot F1 score of 0.7938 on EVCS location planning</li>
-                    <li>Implemented LoRA-based fine-tuning delivering average improvements of 11.40%, 3.36%, and 8.52% across multiple downstream tasks</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <h3 class="experience-title">EV Charging System with Multi-Agent LLMs and CGAN</h3>
-                        <p class="text-secondary">IEEE Transactions on Intelligent Transportation Systems</p>
-                    </div>
-                    <span class="experience-date">2024.01 - 2024.11</span>
-                </div>
-                <ul class="experience-list">
-                    <li>Architected a Multi-Agent-LLM framework integrating User Agents, EVCS Agents, and a Negotiation Platform for dynamic optimization</li>
-                    <li>Designed a hybrid LLM-CGAN model to generate diverse user behavior and pricing data for fine-tuning</li>
-                    <li>Established an intelligent negotiation platform outperforming standard optimization models by 3.96% in overall system effectiveness</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <h3 class="experience-title">Load Prediction of Multiple EV Charging Stations by T-GCN</h3>
-                        <p class="text-secondary">IEEE ISGT-Asia 2024</p>
-                    </div>
-                    <span class="experience-date">2023.10 - 2024.06</span>
-                </div>
-                <ul class="experience-list">
-                    <li>Integrated graph convolution and GRU networks to capture spatial-temporal correlations, achieving 91.30% accuracy on 72-hour load forecasting</li>
-                    <li>Conducted grey correlation analysis to construct adjacency matrices representing spatial relationships between charging stations</li>
-                </ul>
-            </div>
-        </section> -->
-
-        <!-- Project Experience
-        <section id="projects" class="section">
-            <h2 class="section-title">Project Experience</h2>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <h3 class="experience-title">Research on Key Technology of Mass Flexible Resource Scheduling in Virtual Power Plant</h3>
-                        <p class="text-secondary">State Grid Corporation of China (SGCC), Chongqing</p>
-                    </div>
-                    <span class="experience-date">2023.01 - 2024.12</span>
-                </div>
-                <ul class="experience-list">
-                    <li>Researched feasible region identification technology for time-varying scheduling of flexible resources in VPPs</li>
-                    <li>Proposed AST-GCN (Attribute-Augmented Spatiotemporal Graph Convolutional Network) method achieving 95.53% accuracy</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <h3 class="experience-title">Research on Active Consumption and Cooperative Control of Distributed Resources</h3>
-                        <p class="text-secondary">SGCC, Shanghai</p>
-                    </div>
-                    <span class="experience-date">2023.09 - 2024.12</span>
-                </div>
-                <ul class="experience-list">
-                    <li>Researched online aggregation of virtual power plant diversified distributed resources</li>
-                    <li>Constructed a unified state model for efficient information interaction and flexible energy coordination</li>
-                    <li>Published research findings in conference proceedings</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <h3 class="experience-title">Research on Energy Storage Planning from Source-Grid-Load-Carbon Perspective</h3>
-                        <p class="text-secondary">SGCC, Guangdong</p>
-                    </div>
-                    <span class="experience-date">2023.12 - 2025.11</span>
-                </div>
-                <ul class="experience-list">
-                    <li>Researching planning layout and benefit evaluation of source-side energy storage</li>
-                    <li>Proposed optimized joint configuration strategy achieving 9% reduction in total operation and investment cost</li>
-                </ul>
-            </div>
-        </section> -->
-
-        <!-- Skills -->
         <section id="skills" class="section">
             <h2 class="section-title">Professional Skills</h2>
             <div class="skills-grid">
@@ -1033,7 +861,6 @@
             </div>
         </section>
 
-        <!-- Honors & Awards -->
         <section id="honors" class="section">
             <h2 class="section-title">Honors & Awards</h2>
             <div class="card">
@@ -1092,22 +919,8 @@
             </div>
         </section>
 
-        <!-- Other Information
-        <section id="other" class="section">
-            <h2 class="section-title">Other Information</h2>
-            <div class="card">
-                <p><strong>Working Topic:</strong> A Generalizable Physics-Informed and Graph-Based Method for Topology Identification in Unobservable Distribution Networks (@MIT-UF-NEU 2025 Summer Research Camp)</p>
-                <p style="margin-top: 1rem;"><strong>Student Service:</strong></p>
-                <ul style="margin-left: 2rem; margin-top: 0.5rem;">
-                    <li>Assistant to the Career Services Office, School of Electronic Information and Electrical Engineering</li>
-                    <li>Library Information Officer, Shanghai Jiao Tong University</li>
-                    <li>Team Leader of School's Football Team (2022)</li>
-                </ul>
-            </div>
-        </section> -->
-    </div>
+        </div>
 
-    <!-- Back to Top Button -->
     <div class="back-to-top" id="backToTop">↑</div>
 
     <script>
