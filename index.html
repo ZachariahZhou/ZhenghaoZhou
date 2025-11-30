@@ -182,13 +182,13 @@
         /* Section Styles */
         .section {
             margin-bottom: 4rem;
-            opacity: 0;
-            animation: fadeIn 0.6s ease forwards;
+            /* opacity: 0;
+            animation: fadeIn 0.6s ease forwards; */
         }
 
-        .section:nth-child(2) { animation-delay: 0.2s; }
-        .section:nth-child(3) { animation-delay: 0.4s; }
-        .section:nth-child(4) { animation-delay: 0.6s; }
+        /* .section:nth-child(2) { animation-delay: 0.2s; } */
+        /* .section:nth-child(3) { animation-delay: 0.4s; } */
+        /* .section:nth-child(4) { animation-delay: 0.6s; } */
 
         @keyframes fadeIn {
             to {
@@ -610,8 +610,8 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#publications">Publications</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <!-- <li><a href="#experience">Experience</a></li> -->
+                <!-- <li><a href="#projects">Projects</a></li> -->
                 <li><a href="#skills">Skills</a></li>
             </ul>
         </div>
@@ -662,7 +662,7 @@
                     <div class="education-content">
                         <h3>M.S. in Electrical Engineering </h3>
                         <p>Shanghai Jiao Tong University, College of Smart Energy</p>
-                        <p class="text-secondary">GPA: 3.89/4.00  (Ranking: 2/44)</p>
+                        <p class="text-secondary">GPA: 3.89/4.00  (Ranking: 2/44， <strong>National Scholarship</strong>)</p>
                         <p class="text-secondary">Advisor: Yiyan Li, Associate Professor</p>
                     </div>
                     <span class="education-date">2024.09 - present</span>
@@ -671,7 +671,7 @@
                     <div class="education-content">
                         <h3>B.S. in Electrical Engineering</h3>
                         <p>Hunan University, School of Electronic Information and Electrical Engineering</p>
-                        <p class="text-secondary">GPA: 3.83/4.00 (Ranking: 3/289)</p>
+                        <p class="text-secondary">GPA: 3.82/4.00 (Ranking: 3/289， <strong>National Scholarship</strong>)</p>
                     </div>
                     <span class="education-date">2020.09 - 2024.06</span>
                 </div>
@@ -706,13 +706,13 @@
             <div class="publication">
                 <div class="publication-content">
                     <div class="publication-title">
-                        A White-Box Deep-Learning Method for Electrical Energy System Modeling Based on Kolmogorov-Arnold Network
+                        A Glass-Box Deep-Learning Method for Electrical Energy System Modeling Based on Kolmogorov-Arnold Network
                     </div>
                     <div class="publication-authors">
                         <strong>Zhenghao Zhou</strong>, Yiyan Li*, Zelin Guo, Zheng Yan, Mo-Yuen Chow
                     </div>
                     <div class="publication-venue">
-                        IEEE Transactions on Industrial Informatics (Accepted)
+                        IEEE Transactions on Industrial Informatics (2025)
                     </div>
                     <div class="publication-links">
                         <a href="Paper/KAN.pdf">PDF</a>
@@ -753,7 +753,7 @@
                         <strong>Zhenghao Zhou</strong>, Yiyan Li*, Zelin Guo, Runlong Liu, Zheng Yan, Mo-Yuen Chow
                     </div>
                     <div class="publication-venue">
-                        PES International Meeting 2026 (Accepted)
+                        PES International Meeting 2026 
                     </div>
                     <div class="publication-links">
                         <a href="Paper/LLM_imputation_C.pdf">PDF</a>
@@ -773,7 +773,7 @@
                         <strong>Zhenghao Zhou</strong>, Yiyan Li*, Runlong Liu, Zheng Yan, Mo-Yuen Chow
                     </div>
                     <div class="publication-venue">
-                    PES General Meeting 2025 (Accepted)
+                        PES General Meeting 2025 
                     </div>
                     <div class="publication-links">
                         <a href="Paper/PowerDataWatermark_C.pdf">PDF</a>
@@ -867,6 +867,13 @@
             <h2 class="section-title">Honors & Awards</h2>
             <div class="card">
                 <ul class="honor-list">
+                    <li>
+                        <div class="honor-details"> <span class="honor-name">National Scholarship</span>
+                            <span class="honor-issuer">Ministry of Education of China</span>
+                        </div>
+                        <span class="honor-date">2025</span>
+                    </li>
+
                     <li>
                         <div class="honor-details"> <span class="honor-name">Excellent Undergraduate Student Award – Provincial level</span>
                             <span class="honor-issuer">Hunan Provincial Department of Education</span>
@@ -967,23 +974,23 @@
         });
 
         // Animation observer
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        // const observerOptions = {
+        //     threshold: 0.1,
+        //     rootMargin: '0px 0px -50px 0px'
+        // };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                }
-            });
-        }, observerOptions);
+        // const observer = new IntersectionObserver((entries) => {
+        //     entries.forEach(entry => {
+        //         if (entry.isIntersecting) {
+        //             entry.target.style.animationPlayState = 'running';
+        //         }
+        //     });
+        // }, observerOptions);
 
-        document.querySelectorAll('.section').forEach(section => {
-            section.style.animationPlayState = 'paused';
-            observer.observe(section);
-        });
+        // document.querySelectorAll('.section').forEach(section => {
+        //     section.style.animationPlayState = 'paused';
+        //     observer.observe(section);
+        // });
     </script>
 </body>
 </html>
